@@ -1,6 +1,9 @@
 from django.shortcuts import render
-from django.http.response import JsonResponse
+from django.http.response import JsonResponse , Response
 from .models import Movie, Guest, Reservation
+from rest_framework.decorators import api_view
+
+
 
 # Create your views here.
 
@@ -30,10 +33,39 @@ def no_rest_no_model(request):
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 def no_rest_from_model(request):
-    
+
     data = Guest.objects.all()
     response = {
         'guests': list(data.values('name','mobile'))
     }
 
     return JsonResponse(response)
+
+
+# List == GET 
+# Create == POST
+# pk query == PUT
+# Delete destroy == DELETE
+
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+# 3 - Function based views
+# 3.1 GET & POST 
+#~~~~~~~~~~~~~~~
+@api_view(['GET','POST'])
+def f_f_f(request):
+    pass
+    # GET
+
+
+    # POST
+
+
+
+# 3.2 GET PUT DELETE 
+#~~~~~~~~~~~~~~~~~~~
+@api_view(['GET','PUT','DELETE'])
+def f_f_f(request):
+    pass
+
+
+ 
