@@ -22,7 +22,7 @@ class ReservationSerializer(serializers.ModelSerializer):
 class GuestSerializer(serializers.ModelSerializer):
     class Meta:
         model = Guest
-        fields = '__all__'
+        fields = ['pk','Reservation','name','mobile']
 
 
 
