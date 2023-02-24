@@ -12,4 +12,11 @@ urlpatterns = [
     #2 Model data default django without REST.
     path('django/norestfrommodel/', views.no_rest_from_model),
 
+    # 3 .1 GET & POST 
+    path('rest/fbv', views.FBV_List ),
+
+
+    # 3 .2 GET PUT DELETE 
+    path('rest/fbv/<int:pk>', views.FBV_pk ),
+
 ]
