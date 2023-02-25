@@ -5,7 +5,7 @@ from django.db import models
 class Movie(models.Model):
     hall = models.CharField(max_length=10)
     movie = models.CharField(max_length=50)
-    date = models.DateField()
+    # date = models.DateField()
 
     def __str__(self) -> str:
         return self.movie
@@ -22,6 +22,3 @@ class Guest(models.Model):
 class Reservation(models.Model):
     guest = models.ForeignKey(Guest, related_name='Reservation', on_delete=models.CASCADE)
     movie = models.ForeignKey(Movie, related_name='Reservation', on_delete=models.CASCADE)
-
-    def __str__(self) -> str:
-        return self.guest
